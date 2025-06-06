@@ -19,7 +19,7 @@ namespace TaxManagement.Controllers
         }
 
         [HttpPost]
-        [Route("create-tax")]
+        [Route("tax")]
         [AllowAnonymous]
         public async Task<IActionResult> CreateTax([FromBody] Tax model)
         {
@@ -36,7 +36,7 @@ namespace TaxManagement.Controllers
 
 
         [HttpPut]
-        [Route("update-tax")]
+        [Route("tax")]
         public async Task<IActionResult> UpdateTax([FromBody] TaxViewModel model)
         {
             var Tax = await _taxService.UpdateTax(model);
@@ -53,7 +53,7 @@ namespace TaxManagement.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-Tax")]
+        [Route("tax")]
         public async Task<IActionResult> DeleteTax(long id)
         {
             var Tax = await _taxService.GetTaxById(id);
@@ -71,7 +71,7 @@ namespace TaxManagement.Controllers
 
 
         [HttpGet]
-        [Route("get-Tax-by-id")]
+        [Route("tax")]
         public async Task<IActionResult> GetTaxById(long id)
         {
             var Tax = await _taxService.GetTaxById(id);
@@ -87,7 +87,7 @@ namespace TaxManagement.Controllers
         }
 
         [HttpGet]
-        [Route("get-all-taxes")]
+        [Route("tax")]
         public async Task<IEnumerable<Tax>> GetAllTaxes()
         {
             return _taxService.GetAllTaxes();
